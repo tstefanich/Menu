@@ -1,0 +1,681 @@
+on startmovie
+  global count3
+  set count3 to 1
+  global count4
+  set count4 to 1
+  global count5
+  set count5 to 9
+  global count6
+  set count6 to 11
+  global count7
+  set count7 to 7
+  global count8
+  set count8 to 35
+  global count9
+  set count9 to 35
+  global count10
+  set count10 to 35
+  global count11
+  set count11 to 10
+  global count12
+  set count12 to 1
+  global count13
+  set count13 to 10
+  set the cursor of sprite (16) to 2
+  set the volume of sound 2 = 255
+  --  sound fadein 2, 700
+  --  global gVolume
+  --  put the soundlevel into gVolume
+  --  if the soundlevel <> 7 then set the soundlevel to 7
+  set the volume of sound 1 = 255
+  set the volume of sound 2 = 255
+  
+    set the exitLock = TRUE
+  set the keyDownScript to "StdKeyDownScript"
+end
+
+-- Quit Disable script
+
+on StdKeyDownScript
+  if the commandDown = TRUE then
+    if the key = "q" then
+      nothing
+    else if the key = "0" then
+      quit
+    end if
+  end if
+end
+-- END Quit Disable script
+
+
+on closeWindow
+  puppetSound 1, 0
+  puppetSound 2, 0
+  forget the activeWindow
+end
+
+on pulse3
+  set the puppet of sprite (3) to true
+  global count3
+  put count3 + 1 into count3
+  if count3>78 then
+    set count3 to 1
+  end if
+  if count3 = 1 then
+    set the forecolor of sprite (3) to 247
+  end if
+  if count3 = 12 then
+    set the forecolor of sprite (3) to 246
+  end if
+  if count3 = 23 then
+    set the forecolor of sprite (3) to 245
+  end if
+  if count3 = 34 then
+    set the forecolor of sprite (3) to 0
+  end if
+  if count3 = 45 then
+    set the forecolor of sprite (3) to 245
+  end if
+  if count3 = 56 then
+    set the forecolor of sprite (3) to 246
+  end if
+  if count3 = 67 then
+    set the forecolor of sprite (3) to 247
+  end if
+end
+on pulse4
+  set the puppet of sprite (4) to true
+  global count4
+  put count4 + 1 into count4
+  if count4>60 then
+    set count4 to 1
+  end if
+  if count4 = 1 then
+    set the forecolor of sprite (4) to 249
+  end if
+  if count4 = 5 then
+    set the forecolor of sprite (4) to 248
+  end if
+  if count4 = 10 then
+    set the forecolor of sprite (4) to 247
+  end if
+  if count4 = 15 then
+    set the forecolor of sprite (4) to 246
+  end if
+  if count4 = 20 then
+    set the forecolor of sprite (4) to 245
+  end if
+  if count4 = 25 then
+    set the forecolor of sprite (4) to 0
+  end if
+  if count4 = 30 then
+    set the forecolor of sprite (4) to 245
+  end if
+  if count4 = 35 then
+    set the forecolor of sprite (4) to 246
+  end if
+  if count4 = 40 then
+    set the forecolor of sprite (4) to 247
+  end if
+  if count4 = 45 then
+    set the forecolor of sprite (4) to 248
+  end if
+  if count4 = 50 then
+    set the forecolor of sprite (4) to 249
+  end if
+end
+on pulse5
+  set the puppet of sprite (5) to true
+  global count5
+  put count5 + 1 into count5
+  if count5>29 then
+    set count5 to 1
+  end if
+  if count5 = 1 then
+    set the forecolor of sprite (5) to 254
+  end if
+  if count5 = 2 then
+    set the forecolor of sprite (5) to 252
+  end if
+  if count5 = 3 then
+    set the forecolor of sprite (5) to 251
+  end if
+  if count5 = 4 then
+    set the forecolor of sprite (5) to 250
+  end if
+  if count5 = 5 then
+    set the forecolor of sprite (5) to 249
+  end if
+  if count5 = 6 then
+    set the forecolor of sprite (5) to 248
+  end if
+  if count5 = 7 then
+    set the forecolor of sprite (5) to 247
+  end if
+  if count5 = 8 then
+    set the forecolor of sprite (5) to 246
+  end if
+  if count5 = 9 then
+    set the forecolor of sprite (5) to 245
+  end if
+  if count5 = 10 then
+    set the forecolor of sprite (5) to 0
+  end if
+  if count5 = 28 then
+    set the forecolor of sprite (5) to 252
+  end if
+  if count5 = 27 then
+    set the forecolor of sprite (5) to 251
+  end if
+  if count5 = 26 then
+    set the forecolor of sprite (5) to 250
+  end if
+  if count5 = 25 then
+    set the forecolor of sprite (5) to 249
+  end if
+  if count5 = 24 then
+    set the forecolor of sprite (5) to 248
+  end if
+  if count5 = 23 then
+    set the forecolor of sprite (5) to 247
+  end if
+  if count5 = 22 then
+    set the forecolor of sprite (5) to 246
+  end if
+  if count5 = 21 then
+    set the forecolor of sprite (5) to 245
+  end if
+end
+on pulse6
+  set the puppet of sprite (6) to true
+  global count6
+  put count6 + 1 into count6
+  if count6>29 then
+    set count6 to 1
+  end if
+  if count6 = 1 then
+    set the forecolor of sprite (6) to 254
+  end if
+  if count6 = 2 then
+    set the forecolor of sprite (6) to 252
+  end if
+  if count6 = 3 then
+    set the forecolor of sprite (6) to 251
+  end if
+  if count6 = 4 then
+    set the forecolor of sprite (6) to 250
+  end if
+  if count6 = 5 then
+    set the forecolor of sprite (6) to 249
+  end if
+  if count6 = 6 then
+    set the forecolor of sprite (6) to 248
+  end if
+  if count6 = 7 then
+    set the forecolor of sprite (6) to 247
+  end if
+  if count6 = 8 then
+    set the forecolor of sprite (6) to 246
+  end if
+  if count6 = 9 then
+    set the forecolor of sprite (6) to 245
+  end if
+  if count6 = 10 then
+    set the forecolor of sprite (6) to 0
+  end if
+  if count6 = 28 then
+    set the forecolor of sprite (6) to 252
+  end if
+  if count6 = 27 then
+    set the forecolor of sprite (6) to 251
+  end if
+  if count6 = 26 then
+    set the forecolor of sprite (6) to 250
+  end if
+  if count6 = 25 then
+    set the forecolor of sprite (6) to 249
+  end if
+  if count6 = 24 then
+    set the forecolor of sprite (6) to 248
+  end if
+  if count6 = 23 then
+    set the forecolor of sprite (6) to 247
+  end if
+  if count6 = 22 then
+    set the forecolor of sprite (6) to 246
+  end if
+  if count6 = 21 then
+    set the forecolor of sprite (6) to 245
+  end if
+end
+on pulse7
+  set the puppet of sprite (7) to true
+  global count7
+  put count7 + 1 into count7
+  if count7>29 then
+    set count7 to 1
+  end if
+  if count7 = 1 then
+    set the forecolor of sprite (7) to 254
+  end if
+  if count7 = 2 then
+    set the forecolor of sprite (7) to 252
+  end if
+  if count7 = 3 then
+    set the forecolor of sprite (7) to 251
+  end if
+  if count7 = 4 then
+    set the forecolor of sprite (7) to 250
+  end if
+  if count7 = 5 then
+    set the forecolor of sprite (7) to 249
+  end if
+  if count7 = 6 then
+    set the forecolor of sprite (7) to 248
+  end if
+  if count7 = 7 then
+    set the forecolor of sprite (7) to 247
+  end if
+  if count7 = 8 then
+    set the forecolor of sprite (7) to 246
+  end if
+  if count7 = 9 then
+    set the forecolor of sprite (7) to 245
+  end if
+  if count7 = 10 then
+    set the forecolor of sprite (7) to 0
+  end if
+  if count7 = 28 then
+    set the forecolor of sprite (7) to 252
+  end if
+  if count7 = 27 then
+    set the forecolor of sprite (7) to 251
+  end if
+  if count7 = 26 then
+    set the forecolor of sprite (7) to 250
+  end if
+  if count7 = 25 then
+    set the forecolor of sprite (7) to 249
+  end if
+  if count7 = 24 then
+    set the forecolor of sprite (7) to 248
+  end if
+  if count7 = 23 then
+    set the forecolor of sprite (7) to 247
+  end if
+  if count7 = 22 then
+    set the forecolor of sprite (7) to 246
+  end if
+  if count7 = 21 then
+    set the forecolor of sprite (7) to 245
+  end if
+end
+on pulse8
+  set the puppet of sprite (8) to true
+  global count8
+  put count8 + 1 into count8
+  if count8>60 then
+    set count8 to 1
+  end if
+  if count8 = 1 then
+    set the forecolor of sprite (8) to 249
+  end if
+  if count8 = 5 then
+    set the forecolor of sprite (8) to 248
+  end if
+  if count8 = 10 then
+    set the forecolor of sprite (8) to 247
+  end if
+  if count8 = 15 then
+    set the forecolor of sprite (8) to 246
+  end if
+  if count8 = 20 then
+    set the forecolor of sprite (8) to 245
+  end if
+  if count8 = 25 then
+    set the forecolor of sprite (8) to 0
+  end if
+  if count8 = 30 then
+    set the forecolor of sprite (8) to 245
+  end if
+  if count8 = 35 then
+    set the forecolor of sprite (8) to 246
+  end if
+  if count8 = 40 then
+    set the forecolor of sprite (8) to 247
+  end if
+  if count8 = 45 then
+    set the forecolor of sprite (8) to 248
+  end if
+  if count8 = 50 then
+    set the forecolor of sprite (8) to 249
+  end if
+end
+on pulse9
+  set the puppet of sprite (9) to true
+  global count9
+  put count9 + 1 into count9
+  if count9>39 then
+    set count9 to 1
+  end if
+  if count9 = 1 then
+    set the forecolor of sprite (9) to 254
+  end if
+  if count9 = 2 then
+    set the forecolor of sprite (9) to 252
+  end if
+  if count9 = 3 then
+    set the forecolor of sprite (9) to 251
+  end if
+  if count9 = 4 then
+    set the forecolor of sprite (9) to 250
+  end if
+  if count9 = 5 then
+    set the forecolor of sprite (9) to 249
+  end if
+  if count9 = 6 then
+    set the forecolor of sprite (9) to 248
+  end if
+  if count9 = 7 then
+    set the forecolor of sprite (9) to 247
+  end if
+  if count9 = 8 then
+    set the forecolor of sprite (9) to 246
+  end if
+  if count9 = 9 then
+    set the forecolor of sprite (9) to 245
+  end if
+  if count9 = 10 then
+    set the forecolor of sprite (9) to 0
+  end if
+  if count9 = 38 then
+    set the forecolor of sprite (9) to 252
+  end if
+  if count9 = 37 then
+    set the forecolor of sprite (9) to 251
+  end if
+  if count9 = 36 then
+    set the forecolor of sprite (9) to 250
+  end if
+  if count9 = 35 then
+    set the forecolor of sprite (9) to 249
+  end if
+  if count9 = 34 then
+    set the forecolor of sprite (9) to 248
+  end if
+  if count9 = 33 then
+    set the forecolor of sprite (9) to 247
+  end if
+  if count9 = 32 then
+    set the forecolor of sprite (9) to 246
+  end if
+  if count9 = 31 then
+    set the forecolor of sprite (9) to 245
+  end if
+end
+on pulse10
+  set the puppet of sprite (10) to true
+  global count10
+  put count10 + 1 into count10
+  if count10>72 then
+    set count10 to 1
+  end if
+  if count10 = 1 then
+    set the forecolor of sprite (10) to 254
+  end if
+  if count10 = 4 then
+    set the forecolor of sprite (10) to 252
+  end if
+  if count10 = 8 then
+    set the forecolor of sprite (10) to 251
+  end if
+  if count10 = 12 then
+    set the forecolor of sprite (10) to 250
+  end if
+  if count10 = 16 then
+    set the forecolor of sprite (10) to 249
+  end if
+  if count10 = 20 then
+    set the forecolor of sprite (10) to 248
+  end if
+  if count10 = 24 then
+    set the forecolor of sprite (10) to 247
+  end if
+  if count10 = 28 then
+    set the forecolor of sprite (10) to 246
+  end if
+  if count10 = 32 then
+    set the forecolor of sprite (10) to 245
+  end if
+  if count10 = 36 then
+    set the forecolor of sprite (10) to 0
+  end if
+  if count10 = 68 then
+    set the forecolor of sprite (10) to 252
+  end if
+  if count10 = 64 then
+    set the forecolor of sprite (10) to 251
+  end if
+  if count10 = 60 then
+    set the forecolor of sprite (10) to 250
+  end if
+  if count10 = 56 then
+    set the forecolor of sprite (10) to 249
+  end if
+  if count10 = 52 then
+    set the forecolor of sprite (10) to 248
+  end if
+  if count10 = 48 then
+    set the forecolor of sprite (10) to 247
+  end if
+  if count10 = 44 then
+    set the forecolor of sprite (10) to 246
+  end if
+  if count10 = 40 then
+    set the forecolor of sprite (10) to 245
+  end if
+end
+on pulse11
+  set the puppet of sprite (11) to true
+  global count11
+  put count11 + 1 into count11
+  if count11>38 then
+    set count11 to 1
+  end if
+  if count11 = 2 then
+    set the forecolor of sprite (11) to 254
+  end if
+  if count11 = 4 then
+    set the forecolor of sprite (11) to 252
+  end if
+  if count11 = 6 then
+    set the forecolor of sprite (11) to 251
+  end if
+  if count11 = 8 then
+    set the forecolor of sprite (11) to 250
+  end if
+  if count11 = 10 then
+    set the forecolor of sprite (11) to 249
+  end if
+  if count11 = 12 then
+    set the forecolor of sprite (11) to 248
+  end if
+  if count11 = 14 then
+    set the forecolor of sprite (11) to 247
+  end if
+  if count11 = 16 then
+    set the forecolor of sprite (11) to 246
+  end if
+  if count11 = 18 then
+    set the forecolor of sprite (11) to 245
+  end if
+  if count11 = 20 then
+    set the forecolor of sprite (11) to 0
+  end if
+  if count11 = 36 then
+    set the forecolor of sprite (11) to 252
+  end if
+  if count11 = 34 then
+    set the forecolor of sprite (11) to 251
+  end if
+  if count11 = 32 then
+    set the forecolor of sprite (11) to 250
+  end if
+  if count11 = 30 then
+    set the forecolor of sprite (11) to 249
+  end if
+  if count11 = 28 then
+    set the forecolor of sprite (11) to 248
+  end if
+  if count11 = 26 then
+    set the forecolor of sprite (11) to 247
+  end if
+  if count11 = 24 then
+    set the forecolor of sprite (11) to 246
+  end if
+  if count11 = 22 then
+    set the forecolor of sprite (11) to 245
+  end if
+end
+on pulse12
+  set the puppet of sprite (12) to true
+  global count12
+  put count12 + 1 into count12
+  if count12>29 then
+    set count12 to 1
+  end if
+  if count12 = 1 then
+    set the forecolor of sprite (12) to 254
+  end if
+  if count12 = 2 then
+    set the forecolor of sprite (12) to 252
+  end if
+  if count12 = 3 then
+    set the forecolor of sprite (12) to 251
+  end if
+  if count12 = 4 then
+    set the forecolor of sprite (12) to 250
+  end if
+  if count12 = 5 then
+    set the forecolor of sprite (12) to 249
+  end if
+  if count12 = 6 then
+    set the forecolor of sprite (12) to 248
+  end if
+  if count12 = 7 then
+    set the forecolor of sprite (12) to 247
+  end if
+  if count12 = 8 then
+    set the forecolor of sprite (12) to 246
+  end if
+  if count12 = 9 then
+    set the forecolor of sprite (12) to 245
+  end if
+  if count12 = 10 then
+    set the forecolor of sprite (12) to 0
+  end if
+  if count12 = 28 then
+    set the forecolor of sprite (12) to 252
+  end if
+  if count12 = 27 then
+    set the forecolor of sprite (12) to 251
+  end if
+  if count12 = 26 then
+    set the forecolor of sprite (12) to 250
+  end if
+  if count12 = 25 then
+    set the forecolor of sprite (12) to 249
+  end if
+  if count12 = 24 then
+    set the forecolor of sprite (12) to 248
+  end if
+  if count12 = 23 then
+    set the forecolor of sprite (12) to 247
+  end if
+  if count12 = 22 then
+    set the forecolor of sprite (12) to 246
+  end if
+  if count12 = 21 then
+    set the forecolor of sprite (12) to 245
+  end if
+end
+on pulse13
+  set the puppet of sprite (13) to true
+  global count13
+  put count13 + 1 into count13
+  if count13>29 then
+    set count13 to 1
+  end if
+  if count13 = 1 then
+    set the forecolor of sprite (13) to 254
+  end if
+  if count13 = 2 then
+    set the forecolor of sprite (13) to 252
+  end if
+  if count13 = 3 then
+    set the forecolor of sprite (13) to 251
+  end if
+  if count13 = 4 then
+    set the forecolor of sprite (13) to 250
+  end if
+  if count13 = 5 then
+    set the forecolor of sprite (13) to 249
+  end if
+  if count13 = 6 then
+    set the forecolor of sprite (13) to 248
+  end if
+  if count13 = 7 then
+    set the forecolor of sprite (13) to 247
+  end if
+  if count13 = 8 then
+    set the forecolor of sprite (13) to 246
+  end if
+  if count13 = 9 then
+    set the forecolor of sprite (13) to 245
+  end if
+  if count13 = 10 then
+    set the forecolor of sprite (13) to 0
+  end if
+  if count13 = 28 then
+    set the forecolor of sprite (13) to 252
+  end if
+  if count13 = 27 then
+    set the forecolor of sprite (13) to 251
+  end if
+  if count13 = 26 then
+    set the forecolor of sprite (13) to 250
+  end if
+  if count13 = 25 then
+    set the forecolor of sprite (13) to 249
+  end if
+  if count13 = 24 then
+    set the forecolor of sprite (13) to 248
+  end if
+  if count13 = 23 then
+    set the forecolor of sprite (13) to 247
+  end if
+  if count13 = 22 then
+    set the forecolor of sprite (13) to 246
+  end if
+  if count13 = 21 then
+    set the forecolor of sprite (13) to 245
+  end if
+end
+
+on masses
+  puppetsound "massesecho.aiff"
+end
+on signals
+  puppetsound "peoplesendoutsignals.aiff"
+end
+
+--on stopmovie
+--  global gVolume
+--  set the soundlevel to gVolume
+--end
+
+on keydown
+  if the key = RETURN then
+    play movie "7"
+  end if
+end

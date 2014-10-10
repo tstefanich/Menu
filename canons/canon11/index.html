@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+    /* Prevent copy paste for all elements except text fields */
+    *  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+    input, textarea  { -webkit-user-select:text; }
+    
+    /* Set up the page with a default background image */
+    html,body {
+                background:transparent;
+
+        background-color:transparent;
+        color:#000;
+        font-family:Arial;
+        font-size:48pt;
+        margin:0px;padding:0px;
+       
+    }
+</style>
+	<meta charset="utf-8" />
+	<title>AppMobi DirectCanvas Test</title>
+    <!-- The line below is required for access to the intel.xdk JS library -->
+<script src="main.js"></script>
+	<script type="text/javascript">
+        preventDefaultScroll = function(event) {
+			// Prevent scrolling on this element
+			event.preventDefault();
+			window.scroll(0,0);
+			return false;
+		};
+        window.document.addEventListener('touchmove', preventDefaultScroll, false);
+
+		document.addEventListener("intel.xdk.device.ready",function(){
+			
+            
+			//console.log('test');
+			// hides status bar
+			intel.xdk.device.hideStatusBar();
+
+			 //lock orientation
+			intel.xdk.device.setRotateOrientation("portrait");
+			intel.xdk.device.setAutoRotate(false);
+			AppMobi.canvas.load("canons/canon11/index.js");
+			AppMobi.device.hideSplashScreen();
+		},false);
+     	
+	</script>
+
+</head>
+<body> 
+ 
+<!-- --------------------------- -->
+<!-- This div is a stub to handle going full screen in Safari on iOS devices. -->
+
+
+
+</body>
+</html>

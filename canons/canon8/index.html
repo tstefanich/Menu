@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	    *  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+        input, textarea  { -webkit-user-select:text; } 
+        
+	</style>
+	<meta charset="utf-8" />
+	<title>AppMobi DirectCanvas Test</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+
+	<script type="text/javascript">
+        preventDefaultScroll = function(event) {
+			// Prevent scrolling on this element
+			event.preventDefault();
+			window.scroll(0,0);
+			return false;
+		};
+        window.document.addEventListener('touchmove', preventDefaultScroll, false);
+
+		document.addEventListener("intel.xdk.device.ready",function(){
+			
+            
+			//console.log('test');
+			// hides status bar
+			intel.xdk.device.hideStatusBar();
+
+			 //lock orientation
+			intel.xdk.device.setRotateOrientation("portrait");
+			intel.xdk.device.setAutoRotate(false);
+		    AppMobi.canvas.load("index.js");
+			//AppMobi.display.useViewport(1024,764);
+			//document.removeEventListener("intel.xdk.device.ready",onDeviceReady, false);
+			//Load files for Direct Canvas
+			//intel.xdk.device.device.model=="iPad" ? device="ipad": device="iphone";
+
+			//if(device=="ipad"){AppMobi.display.useViewport(764,1024);}
+			//else{AppMobi.display.useViewport(764,1024);}
+		
+			intel.xdk.device.hideSplashScreen();
+			//intel.xdk.player.loadSound("audio/laser.wav", 5); 
+			//intel.xdk.player.playSound("audio/laser.wav"); 
+           
+
+			 //intel.xdk.player.startAudio("audio/final2.wav", true);
+			// Touch forwarding is now in the Main.js 
+		},false);
+       // intel.xdk.player.startAudio("audio.steady.wav", true);
+        
+
+		//document.addEventListener("intel.xdk.device.player.audio.stop", test, false);
+
+		//document.addEventListener("intel.xdk.device.ready", onDeviceReady, false);
+		
+
+		
+	</script>
+   
+</head>
+<body> 
+<!-- --------------------------- -->
+<!-- This div is a stub to handle going full screen in Safari on iOS devices. -->
+	<canvas id="myCanvas" width="768" height="1024"></canvas>
+	<script type="text/javascript" src="../../js/howler.min.js"></script>
+	<script type="text/javascript" src="main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ding An Sich</title>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, follow">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" />
+    
+    <style type="text/css">
+        /* Prevent copy paste for all elements except text fields */
+        *  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+        input, textarea  { -webkit-user-select:text; }
+        html,body.canon-active {
+            background:transparent;
+            background-color:transparent;
+            color:#000;
+            font-family:Arial;
+            font-size:48pt;
+            margin:0px;padding:0px;
+        }
+        body{display:block !important;}
+
+        a {
+            -webkit-transition: all 300ms ease-in-out;
+            -moz-transition: all 300ms ease-in-out;
+            -o-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+            color: black;
+            text-decoration: none;
+            padding-top: 0px;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        body {margin: 36px 0px 0px 40px;
+            background:white;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+            width:768px;
+            height:1024px;
+            overflow: hidden;
+        }
+        body.launch-app a{color:white;} 
+        body.launch-app{ background: rgb(145,148,109);}
+        body.launch-app .line{background: white;}
+        body.launch-app .active ul li a {color:white;}
+        body.launch-app ul.menu li.app-title > a{color:white;}
+        
+        
+
+        ul, li {list-style: none; font-weight: bold; font-family: helvetica, arial, sans-serif;}
+        ul.menu {padding-left: 0;line-height: 30px;font-size: 24px;margin: 0;}
+        ul.menu li.app-title > a{color:black;}
+        //ul.menu li ul li.active > ul {max-height:1024px;}
+        /*ul.menu li ul li.active > ul.app-list{max-height:455px;}
+        ul.menu li ul li.active > ul.accessibility{max-height:78px;}
+        ul.menu li ul li.active > ul.extras{max-height:115px;}*/
+
+        //ul.menu li ul li ul li.active > ul {max-height:1024px;}
+        //ul.menu li ul li ul li ul li.active > ul {max-height:1024px;}
+        ul.menu li ul li ul {overflow: hidden; display: none;
+           /* -webkit-transition: all 500ms ease-in-out;
+            -moz-transition: all 500ms ease-in-out;
+            -o-transition: all 500ms ease-in-out;
+            transition: all 500ms ease-in-out;*/
+        }
+
+        //.active ul li a {color:black;}
+        body.launch-app .active ul li.non-active > a{color:rgb(200,202,182);}
+        body.launch-app .line{ background: rgb(200,202,182);}
+
+        body .non-active > a{color:rgb(145,148,109);}
+        body .line {position: absolute;left: 0px; width:5px; border-radius: 5px ; 
+            background: rgb(145,148,109);
+            top: 4px; bottom: 14px;
+            -webkit-transition: all 300ms ease-in-out;
+            -moz-transition: all 300ms ease-in-out;
+            -o-transition: all 300ms ease-in-out;
+            transition: all 300ms ease-in-out;
+        }
+        .fwd-logo{margin: 3px 0px 0px 3px;position: absolute;top: 7px;left: 7px;}
+        ul.menu li ul {
+            /*-webkit-transition: all 700ms ease-in-out;
+            -moz-transition: all 700ms ease-in-out;
+            -o-transition: all 700ms ease-in-out;
+            transition: all 700ms ease-in-out;     */
+            padding-left: 20px;
+            position: relative;
+            line-height: inherit;
+        }
+        .canon-iframe{position: absolute;top:1024px;left:0;background: black;width:768px;z-index: 999;height:1024px;opacity: 0;
+            -webkit-transition: all 700ms ease-in-out;
+            -moz-transition: all 700ms ease-in-out;
+            -o-transition: all 700ms ease-in-out;
+            transition: all 700ms ease-in-out;   
+        }
+        .logo-back-button{position: absolute;top:1024px;left:0;width:768px;z-index: 9999999;height:1024px;
+            -webkit-transition: all 700ms ease-in-out;
+            -moz-transition: all 700ms ease-in-out;
+            -o-transition: all 700ms ease-in-out;
+            transition: all 700ms ease-in-out;   }
+        .logo-back-button.slideUp{position: absolute;top:0px;left:0;}
+        .canon-iframe.slideUp{position: absolute;top:0px;left:0;opacity: 1;}
+        .canon-iframe#canvas { z-index: 998; }
+        .canon-iframe.above#canvas { z-index: 1000; }
+        .canon-iframe#canon0 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-0.png);}
+        .canon-iframe#canon1 {background-color:white;background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-1.png);}
+        .canon-iframe#canon2 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-2.png);}
+        .canon-iframe#canon3 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-3.png);}
+        .canon-iframe#canon4 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-4.png);}
+        .canon-iframe#canon5 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-5.png);}
+        .canon-iframe#canon6 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-6.png);}
+        .canon-iframe#canon7 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-7.png);}
+        .canon-iframe#canon8 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-8.png);}
+        .canon-iframe#canon9 {background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-9.png);}
+        .canon-iframe#canon10{background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-10.png);}
+        .canon-iframe#canon11{background-repeat:no-repeat;background-position:center center;background-image:url(images/title-screens/ipad-mini/title-canon-11.png);}
+
+
+        #intro-page{
+            position: absolute;
+            top:0;
+            left:0;
+            width:768px;
+            height:1024px;
+            background:white;
+            z-index: 999;
+            padding: 36px 0px 0px 40px;
+        }
+
+
+
+
+        /* CANON 9 STYLES */
+          .number.active{opacity: 1;}
+          .deathToll{width:768px;text-align:center;top:170px;position:absolute;color:white;font-size:40px;display: none;}
+          .deathToll.active{display: block;}
+.number {
+
+transition: opacity 150ms;
+-webkit-transition: opacity 150ms; /* Safari */
+    opacity:.5;text-indent:-9999px;margin-right:0px;width:37px; height:51px;display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(canons/canon9/img/numbers.png);}
+.number-1 { background-position: -40px -2px}
+.number-0 { background-position: -2px -2px}
+.number-9 { background-position: -78px -2px}
+.number-8 { background-position: -2px -55px}
+.number-7 { background-position: -40px -55px}
+.number-6 { background-position: -78px -55px}
+.number-5 { background-position: -2px -108px}
+.number-4 { background-position: -40px -108px}
+.number-3 { background-position: -78px -108px}
+.number-2 { background-position: -2px -161px}
+    </style>    
+   
+    <!--<script src="intelxdk.js"></script>-->
+   
+</head>
+<body>
+    <div class='dom'>
+         <div data-role="page" id="intro-page" class="jqm-demos">
+                <div id="touch-blocker" style="position:absolute;z-index:9999;width:768px;height:1024px;background:transparent;"></div>
+
+                <ul class="menu" style="margin-top: -11px;">
+                <li ><a href="#" class="roll-link" style="font-size:48px;line-height: 52px;margin-bottom:0px;padding-bottom:0;margin-left: -5px;"><img height='61' src="images/general/fwd_logo_intro.png"></a>
+                    <ul style="padding-left: 41px;">
+                        <li class='line' style="margin-left: 4px;width:7px;"></li>
+                        <li><a href="#" class="roll-link launch-app" style="font-size: 48px;line-height: 52px;color:rgb(145,148,109);">Piotr Syhalzski</a>
+                            <ul class="app-list" style="display:block;padding-left: 41px;">
+                                <li class='line' style="margin-left: 4px;width:7px;"></li>
+                                <li><a href="#test" class="canon" style="font-size: 48px;line-height: 52px;">Ding an sich</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="white-background" style="position:absolute;z-index:998;width:768px;height:1024px;background:white;"></div> 
+
+
+        <div data-role="page" class="jqm-demos">
+            <div data-role="content" class="jqm-content">
+            <ul class="menu">
+                <li class="app-title"><a href="#" class="roll-link">Ding an sich</a>
+                <ul>
+                    <li class='line'></li>
+                    <li><a href="#" class="roll-link launch-app">Launch App</a>
+                        <ul class="app-list">
+                            <li class='line'></li>
+                            <li><a href="#canon0" class="canon">CANON 00 (Prelude)</a></li>
+                            <li><a href="#canon1" class="canon roll-link">CANON 01 (Breath Exchange)</a></li>
+                            <li><a href="#canon2" class="canon roll-link">CANON 02 (Connections)</a></li>
+                            <li><a href="#canon3" class="canon roll-link">CANON 03 (Endless Inspiration)</a></li>
+                            <li><a href="#canon4" class="canon roll-link">CANON 04 (Magic Of The Mind)</a></li>
+                            <li><a href="#canon5" class="canon roll-link">CANON 05 (A Definite Idea)</a></li>
+                            <li><a href="#canon6" class="canon roll-link">CANON 06 (Signals)</a></li>
+                            <li><a href="#canon7" class="canon roll-link">CANON 07 (Idealised Movement)</a></li>
+                            <li><a href="#canon8" class="canon roll-link">CANON 08 (Speeded Up Life)</a></li>
+                            <li><a href="#canon9" class="canon roll-link">CANON 09 (The Message)</a></li>
+                            <li><a href="#canon10" class="canon roll-link">CANON 10 (All For The Others)</a></li>
+                            <li><a href="#canon11" class="canon canon11 roll-link">CANON 11 (Coda)</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="roll-link">Extras</a>
+                         <ul class="extras">
+                            <li class='line'></li>
+                            <li><a href="#" class="roll-link">Tabletop Conversation</a>
+
+                        </ul>
+
+                    </li>
+                    <li><a href="#" class="roll-link">About fwd://</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <div id="canon-page">
+            <div class="canon-iframe" id="canon0">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon1">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon2">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon3">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon4">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon5">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon6">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon7">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon8">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon9">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon10">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe" id="canon11">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <!--<iframe src=""></iframe>-->
+            </div>
+
+            <div class="canon-iframe canvas" id="canvas">
+                <img class="fwd-logo" src="images/general/fwd_logo.png">
+                 <div class="deathToll">
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+        </div>
+                <canvas id="myCanvas" width="768" height="1024"></canvas>
+
+            </div>
+
+            
+        </div> <!-- CANON IFRAME CONTAINER -->
+    </div><!-- END OF DOM CONTAINER -->
+    
+    <!--<div class="logo-back-button" style="z-index:99999;">
+        <img src="images/general/fwd_logo.png">
+    </div>-->
+
+
+
+     <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/howler.min.js"></script>
+    <script type="text/javascript">
+       function getPhoneGapPath() {
+            var path = window.location.pathname;
+            path = path.substr( 0, path.length - 10 );
+            path = ''; // THIS WAS ADDED FOR THE RUNNING LOCALLY
+            return path;
+        };
+ 
+        Element.prototype.hasClass = function(className) 
+        {
+            return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+        };       
+
+
+        var MenuTree = {
+            collapse: function(element) {
+                //Remove Active Class on previously active link and add active class to currently clicked       
+                //$( ".menu" ).find
+                element.parentsUntil( ".menu" ).siblings('li.active').removeClass('active').find('ul').slideUp();  
+                element.parentsUntil( ".menu" ).siblings('li.active').removeClass('active').children('ul').slideUp();
+                //$('li.non-active').parent('ul').slideUp();
+                console.log('collapse');
+
+            },
+             collapseAll : function(){
+                //console.log('collapsing all');
+                $('.active').not('.app-title').children('ul').slideUp();
+                $('.active').removeClass('active').removeClass('non-active');
+                $('.non-active').removeClass('non-active');
+                $('body.launch-app').removeClass('launch-app');
+            },
+
+            walk: function() {
+
+                $('a', '.menu ul').each(function() {
+
+                    var $a = $(this);
+                    var $li = $a.parent();
+
+                    // Check to see if menu item has sub-menu 
+                    // and is not the Title of the App
+                    if ($a.next().is('ul') && $a.not('.app-title')) {
+                        console.log('walk first');
+                        var $ul = $a.next();
+
+                        $a.click(function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            // Special Rule to Change Colors 
+                            // For when you click launch-app
+                            if($a.hasClass('launch-app') || $a.parent('li').parent('ul').hasClass('launch-app')){ $('body').addClass('launch-app');} else {
+                                $('body').removeClass('launch-app');
+                            }
+                           
+                            $('li', '.menu').each(function() { 
+                                if($(this).parent())
+                                $(this).addClass('non-active');   
+                            });
+                            MenuTree.collapse($a);
+                            
+                            $li.addClass('active').children('ul').slideDown();
+                            
+                            $li.find('> ul > li').each(function(i, el){
+                               // $(this).addClass('active');
+                               $(this).removeClass('non-active');
+
+                            });
+                            // Important that its the anchor tag not the LI item 
+                            $(this).parents('li').each(function(i, el){
+                                $(this).addClass('active');
+                                $(this).removeClass('non-active');
+                            });
+                           // $li.removeClass('non-active');
+                            
+
+                        });
+
+                    } else {
+                        
+                        $a.click(function(e) {
+                            //MenuTree.collapse($a);
+                            //console.log('walk else');
+                            $('li', '.menu').each(function() { 
+                                if($(this).parent());
+                                $(this).addClass('non-active');   
+
+                            });
+                            // Special Rule to Change Colors 
+                            // For when you click launch-app
+                            if($a.hasClass('launch-app') || $a.parent('li').parent('ul').hasClass('launch-app')){  $('body').addClass('launch-app');} else {
+                                //$('body').removeClass('launch-app');
+                            }
+                            MenuTree.collapse($a);
+                            $li.siblings('li').removeClass('active');
+                            $(this).parents('li').each(function(i, el){
+                                $(this).addClass('active');
+                                $(this).removeClass('non-active');
+
+                            });
+                        });
+
+                    }
+
+
+
+                });
+
+
+            }
+        };
+
+        function slideCanonTitleScreen(e,element){
+            e.preventDefault();
+            e.stopPropagation();
+            var href = element.attr("href");
+            var hash = href.substr(href.indexOf("#"));
+
+            $(hash).addClass('slideUp');
+            $('.canon-iframe#canvas').addClass('slideUp');
+            //$('.logo-back-button').addClass('slideUp');
+            
+            console.log(hash);
+            // Launch Canon
+            switch(hash)
+            {
+                   
+                case '#canon2':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon2';
+                        $('.canon-iframe#canvas').addClass('above');
+                        canon2.setup();
+                    }, 4000);
+                    break;
+                case '#canon6':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon6';
+                        $('.canon-iframe#canvas').addClass('above');
+                        canon6.setup();
+                    }, 4000);
+                    break;
+                case '#canon8':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon8';
+                        $('.canon-iframe#canvas').addClass('above');
+                        canon8.checkForDrawReadiness();
+                        canon8.setup();
+                    }, 4000);
+                    break;
+                case '#canon9':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon9';
+                        $('.canon-iframe#canvas').addClass('above');
+                        $('.deathToll').addClass('active');
+                        canon9.setup();
+                    }, 4000);
+                    break;
+                case '#canon10':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon10';
+                        $('.canon-iframe#canvas').addClass('above');
+                        canon10.setup();
+                    }, 4000);
+                    break;
+                case '#canon11':
+                    whichCanonTimeout = setTimeout(function(){
+                        whichCanon = 'canon11';
+                        $('.canon-iframe#canvas').addClass('above');
+                        canon11.setup();
+                    }, 4000);
+                    break;
+            }
+        }
+
+
+        var whichCanon = 'none';
+        var whichCanonTimeout = null;
+        var canvasWidth = 768;
+        var canvasHeight = 1024;
+        var can = document.getElementById('myCanvas');
+        var Canvas = document.getElementById('myCanvas');   
+        var ctx;
+
+        $(window).load(function(){
+
+            ctx  = Canvas.getContext('2d');
+            ctx.width=canvasWidth;
+            ctx.height=canvasHeight;
+            draw();
+
+
+            // INTRO SCREEN 
+            // FADE OUT THEN FADE OUT WHITE BACKGROUND
+            window.setTimeout(function(){
+                $('#intro-page').fadeOut(500,function(){
+                    $('#white-background').delay(700).fadeOut(500);
+                });
+            }, 7000);
+
+            $('.app-title').children('a').click(function(){
+                MenuTree.collapseAll();
+            });
+            
+            MenuTree.walk();
+            
+            $('.canon').click(function(e) {
+                slideCanonTitleScreen(e, $(this));
+                
+            });
+            
+            $('.fwd-logo').click(function(e) {
+                clearTimeout(whichCanonTimeout);
+                resetCanons();
+                whichCanon = 'none';
+                setTimeout(function(){$('.canon-iframe#canvas').removeClass('above');},150)
+                // Fix Colors to Make Canon List White Again.
+
+                $('.app-list .non-active').addClass('active').removeClass('non-active');
+                $('.canon-iframe').removeClass('slideUp');
+                $(this).parent().removeClass('slideUp');
+                //Howler.mute();
+                //$('body').attr('style','');
+                //$('.dom').fadeIn(1500);
+            });
+
+
+        });
+
+       function resetCanons(){
+            switch (whichCanon) {
+                    case 'none':
+                        //ctx.clearRect(0,0,768,1024);
+                        break;
+                    case 'canon2':
+                        canon2.reset();
+                        break;
+                    case 'canon6':
+                        canon6.reset();
+                        break;
+                    case 'canon8':
+                        canon8.reset();
+                        break;
+                    case 'canon9':
+                        canon9.reset();
+                        $('.deathToll').removeClass('active');
+                        break;
+                    case 'canon10':
+                        canon10.reset();
+                        break;
+                    case 'canon11':
+                        canon11.reset();
+                        break;
+            }
+       }
+
+
+        function touchStartMaster(event){
+             switch (whichCanon) {
+                case 'none':
+                    ctx.fillStyle = "#ffffff";
+                    break;
+                case 'canon2':
+                    canon2.touchStart(event);                 
+                    break;
+                case 'canon6':
+                    canon6.touchStart(event);
+                    break;
+                case 'canon8':
+                    canon8.touchStart(event);
+                    break;
+                case 'canon9':
+                    canon9.touchStart(event);
+                    break;
+                case 'canon10':
+                    canon10.touchStart(event);
+                    break;
+                case 'canon11':
+                    canon11.touchStart(event);
+                    break;
+            }
+        }
+
+        function touchEndMaster(event){
+            switch (whichCanon) {
+                case 'none':
+                    ctx.fillStyle = "#ffffff";
+                    break;
+                case 'canon8':
+                    canon8.touchEnd = true;
+                    break;
+                case 'canon10':
+                    canon10.touched = false;  
+                    break;
+                case 'canon11':
+                    canon11.touchMove(event);
+                    break;
+            }
+        }
+
+        function touchMoveMaster(event){
+            switch (whichCanon) {
+                case 'none':
+                    ctx.fillStyle = "#ffffff";
+                    break;
+                case 'canon6':
+                    canon6.xPos = event.pageX || event.touches[0].pageX;
+                    canon6.yPos = event.pageY || event.touches[0].pageY;
+                    break;
+                case 'canon8':
+                    canon8.touchMove(event); 
+                    break;
+                case 'canon9':
+                    canon9.touchMove(event); 
+                    break;
+                case 'canon10':
+                    canon10.touched = true;
+                    canon10.xPos = event.pageX || event.touches[0].pageX;
+                    canon10.yPos = event.pageY || event.touches[0].pageY;
+                    break;
+                case 'canon11':
+                    canon11.touchMove(event);
+                    break;
+            }
+        }
+
+        
+        function draw() 
+        {
+            requestAnimationFrame(draw);
+            switch (whichCanon) {
+                    case 'none':
+                        ctx.fillStyle = "#000";
+                        ctx.fillRect(0,0,768,1024);
+                        break;
+                    case 'canon2':
+                        canon2.update();
+                        break;
+                    case 'canon6':
+                        canon6.update();
+                        break;
+                    case 'canon8':
+                        canon8.update();
+                        break;
+                    case 'canon9':
+                        canon9.update();
+                        break;
+                    case 'canon10':
+                        canon10.update();
+                        break;
+                    case 'canon11':
+                        canon11.update();
+                        break;
+            }
+        }
+
+
+
+
+        Canvas.addEventListener('touchmove', function (event) {
+            touchMoveMaster(event);
+        });
+
+        Canvas.addEventListener('touchend', function (event) {
+             touchEndMaster(event);  
+        });
+
+
+        Canvas.addEventListener('touchstart', function (event) {
+             touchStartMaster(event);  
+        });
+
+
+        Canvas.addEventListener('mousemove', function (event) {
+            touchMoveMaster(event);
+        });
+
+        Canvas.addEventListener('mouseup', function (event) {
+             touchEndMaster(event);  
+        });
+
+
+        Canvas.addEventListener('mousedown', function (event) {
+            touchStartMaster(event);
+        });
+
+
+
+
+
+    </script>
+    <!-- INTEL XDK CODE --> 
+    <script type="text/javascript" src="canons/canon2/main.js"></script>
+    <script type="text/javascript" src="canons/canon6/main.js"></script>
+    <script type="text/javascript" src="canons/canon8/main.js"></script>
+    <script type="text/javascript" src="canons/canon9/main.js"></script>
+    <script type="text/javascript" src="canons/canon10/main.js"></script>
+    <script type="text/javascript" src="canons/canon11/main.js"></script>
+
+
+    <script type="text/javascript">
+        preventDefaultScroll = function(event) {
+            // Prevent scrolling on this element
+            event.preventDefault();
+            window.scroll(0,0);
+            return false;
+        };
+        window.document.addEventListener('touchmove', preventDefaultScroll, false);     
+    </script>
+
+
+
+</body>
+</html>

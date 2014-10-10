@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+    /* Prevent copy paste for all elements except text fields */
+    *  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+    input, textarea  { -webkit-user-select:text; }
+    
+    /* Set up the page with a default background image */
+    body {
+        background-color:transparent;
+        color:#000;
+        font-family:Arial;
+        font-size:48pt;
+        margin:0px;padding:0px;
+       
+    }
+    .number.active{opacity: 1;}
+.number {
+
+transition: opacity 150ms;
+-webkit-transition: opacity 150ms; /* Safari */
+    opacity:.5;text-indent:-9999px;margin-right:0px;width:37px; height:51px;display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(img/numbers.png);}
+.number-1 { background-position: -40px -2px}
+.number-0 { background-position: -2px -2px}
+.number-9 { background-position: -78px -2px}
+.number-8 { background-position: -2px -55px}
+.number-7 { background-position: -40px -55px}
+.number-6 { background-position: -78px -55px}
+.number-5 { background-position: -2px -108px}
+.number-4 { background-position: -40px -108px}
+.number-3 { background-position: -78px -108px}
+.number-2 { background-position: -2px -161px}
+</style>
+	<meta charset="utf-8" />
+	<title>AppMobi DirectCanvas Test</title>
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script>
+        
+       
+
+        
+        Element.prototype.hasClass = function(className) 
+        {
+            return this.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(this.className);
+        };
+
+
+       
+
+		 //*** Prevent Default Scrolling ******
+		preventDefaultScroll = function(event) {
+			// Prevent scrolling on this element
+			event.preventDefault();
+			window.scroll(0,0);
+			return false;
+		};
+    
+		window.document.addEventListener('touchmove', preventDefaultScroll, false);
+		
+		//Global Variables
+		
+		//variable to let $('id') equal document.getElementById('id')
+		var $ = function(q) { return document.getElementById(q);};
+		var device="";
+		var touchNum=0;
+		var prevColor=0;
+		//Array of all the colors being used in order as displayed on color pallet
+	
+	
+	
+		
+		
+		
+	</script>
+
+	
+</head>
+<body> 
+
+<canvas id="myCanvas" width="768" height="1024"></canvas>
+  <div id="deathToll" style="width:768px;text-align:center;top:170px;position:absolute;color:white;font-size:40px;">
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+            <span class="number number-0">0</span>
+        </div>
+<!-- --------------------------- -->
+<!-- This div is a stub to handle going full screen in Safari on iOS devices. -->
+    <script type="text/javascript" src="../../../js/howler.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="main.js"></script>
+
+
+</body>
+</html>
